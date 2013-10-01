@@ -55,10 +55,10 @@ So, now that we have our folder structure setup, we can link in the CSS file to 
 Do you see the ```<link>``` tag in there? That where we pull in our stylesheet. You just reference the path of the css file in the ```href``` attribute. You'll also notice that ```<link>``` has neither a closing tag nor a ```/``` in the tag. Sometimes you just don't need it. HTML isn't always the most consistent of languages. Luckily there aren't too many tags to memorize, so you'll memorize this stuff quickly.
 
 ## How Do I Write CSS?
-So, we provided one example above, but you can do so much more.
+So, we provided one example above, but you can do so much more. But before we can get into all the stuff you can do, we have to go over *how* you do it. 
 
 ### Format of a Selector and Rule
-But before we can get into all the stuff you can do, we have to go over *how* you do it. CSS is a list of selectors and rules. Selectors are ways to describe groups of HTML elements. Here are some examples where we select elements by groups of tags:
+CSS is a list of selectors and rules. Selectors are ways to describe groups of HTML elements. Here are some examples where we select elements by groups of tags:
 
 ```CSS
 h1 {
@@ -92,3 +92,46 @@ ul > li {
   */
 }
 ```
+
+### Classes and ID's
+Styling tags is nice and all, but what if you don't want to style *all* of the unordered lists, but just *some* of them. That brings us into two new concepts: **classes** and **ids**. 
+
+#### Classes
+Classes let you describe groups of elements that should have common properties. For example, maybe you want to have a class that indicates what an item looks like in a list if it was selected by the user.
+
+**index.html**
+```HTML
+<h1>Which Superhero doesn't belong?</h1>
+<ul>
+  <li>Batman</li>
+  <li>Superman</li>
+  <li class="selected">Spider-Man</li>
+  <li>Green Lantern</li>
+</ul>
+
+<h1>Top Superheros of All Time</h1>
+<h2>Choose your favorite.</h2>
+<ol>
+  <li class="selected">Spider-Man</li>
+  <li>Iron Man</li>
+  <li>Batman</li>
+  <li>Superman</li>
+</ol>
+```
+
+**css/main.css**
+```CSS
+ul .selected {
+  color: red;
+}
+
+ol .selected {
+  color: blue;
+}
+
+li.selected {
+  font-size: 24px;
+}
+```
+
+### Cascading and the Point System
