@@ -49,7 +49,7 @@ So, now that we have our folder structure setup, we can link in the CSS file to 
   </head>
   <body>
     ...
-  </body
+  </body>
 </html>
 ```
 Do you see the ```<link>``` tag in there? That where we pull in our stylesheet. You just reference the path of the css file in the ```href``` attribute. You'll also notice that ```<link>``` has neither a closing tag nor a ```/``` in the tag. Sometimes you just don't need it. HTML isn't always the most consistent of languages. Luckily there aren't too many tags to memorize, so you'll memorize this stuff quickly.
