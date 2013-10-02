@@ -1,0 +1,103 @@
+/* =====================================================
+ * CONTENT
+ * ===================================================== */
+
+/**
+ * Get rid of any extra margin/padding round the whole page.
+ * Set our font as 'Georgia' - a nice newspaper font.
+ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", "Times New Roman", "serif";
+}
+
+ /**
+  * Give our page a static width and center-align it.
+  * NOT A GOOD PRACTICE ON ITS OWN. 
+  * If we get to it, we will improve this with a media query.
+  */
+.content {
+    width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* =====================================================
+ * HEADINGS
+ * ===================================================== */
+h1 {
+    text-align: center;
+    margin: 0;
+    font-size: 48px;
+    text-transform: uppercase; /* Always renders in all-caps */
+}
+
+h2 {
+    font-size: 36px;
+}
+
+/* =====================================================
+ * NAV BAR
+ * ===================================================== */
+.nav {
+    list-style: none; /* Gets rid of the bullet points */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center-aligns our bar in the page */
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.nav li {
+    display: inline-block; /* Sits all of our li on one line */
+    width: 120px;
+    margin: 10px 0;
+    text-align: center;
+    border-right: 2px solid black;
+}
+
+/* Gets rid of the right border on the last list item */
+.nav li:last-child {
+    border-right: none;
+}
+
+.nav a {
+    text-decoration: none; /* Gets rid of the underline */
+    font-weight: bold;
+    color: black;
+}
+
+/* Underlines the link when you hover over it */
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+ * MISC.
+ * ===================================================== */
+
+/* Our Spider-Man picture. */
+.news-pic {
+    float: right; /* Lets text wrap around it */
+    margin: 10px 0 10px 10px;
+    -webkit-filter: grayscale(100%); /* Only supported in Chrome - makes picture black and white */
+}
+
+
+/**
+ * Will make the content flow when it gets resized
+ * below our content's width.
+ */
+@media(max-width: 800px) {
+    .content {
+        width: auto; /* Rememeber - by default, block elements take up whole width */
+    }
+    .news-pic {
+        width: 100%;
+        height: auto; /* Keeps the aspect ratio of the picture */
+        margin: 0;
+    }
+}
+
