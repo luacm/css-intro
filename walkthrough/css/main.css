@@ -1,8 +1,8 @@
-#container {
+.container {
     border: 1px solid blue;
 }
 
-#container div {
+.container div {
     height: 150px;
     border: 1px solid #222;
     font-size: 150%;
@@ -11,57 +11,188 @@
     font-family: sans-serif;
 }
 
-#block-1 {
+.box-1 {
     background: red;
 }
 
-#block-2 {
+.box-2 {
     background: yellow;
 }
 
-#block-3 {
+.box-3 {
     background: green;
 }
 
+/* ===============================================================================
+ * COMMENT OUT THESE LINES ONE AT A TIME TO SEE THE EFFECT
+ * =============================================================================== */
 
-
-
-
-/*
-
-#container div { width: 150px; }
-#container div { display: inline; }
-#container div { display: block; }
-#block-2 { text-align: center; }
-#block-2 { display: inline; }
-#container #block-2 { display: inline; }
-#container #block-2 { display: block; }
-#container div { margin: 1em; }
-#container div { padding: 10px; }
-#container div { border: 2px dotted #000; }
-#block-2 { visibility: hidden; }
-#block-2 { visibility: visible; }
-#container #block-2 { display: none; }
-#container #block-2 { display: block; }
-#block-2 { position: absolute; }
-#block-2 { right: 0; }
-#container #block-2 { margin: 0; }
-#block-2 { top: 20px; }
-#block-2 { bottom: 20px; }
-#block-2 { top: auto; }
-#block-2 { bottom: auto; }
-#container #block-2 { margin: 1em; }
-#block-2 { position: static; }
-#block-2 { position: relative; }
-#block-2 { left: 50px; }
-#block-2 { top: 50px; }
-#block-2 { position: static; }
-#container div { display: inline; }
-#container #block-2 { display: inline; }
-#container div { display: inline-block; }
-#container #block-2 { display: inline-block; }
-#container div { float: left; }
-#container #block-2 { clear: left; }
-#container #block-3 { clear: left; }
-
+/**
+ * Makes each box 150px wide.
  */
+/*.container div { width: 150px; }*/
+
+/**
+ * Makes each box display inline. Inline elements sit next to
+ * each other instead of taking up all available width. You can
+ * think of each word on a site as being an inline element.
+ * Width and height are ignored on inline elements.
+ */
+/*.container div { display: inline; }*/
+/*.container div { display: block; }*/
+
+/**
+ * Just center-aligning text.
+ */
+/*.box-2 { text-align: center; }*/
+
+/**
+ * The first line by itself won't do anything. That's because this selector
+ * is only worth 10 points, whereas the one above (.container div) that sets
+ * the display to block is worth 11 points. The second one fixes this.
+ * Notice that even though .box-2 is inline, because the other elements are 
+ * blocks, they still take up their whole line.
+ */
+/*.box-2 { display: inline; }*/
+/*.container .box-2 { display: inline; }*/
+/*.container .box-2 { display: block; }*/
+
+/**
+ * Margin is the space outside of a box. It does not contribute to the element's
+ * total width.
+ */
+/*.container div { margin: 1em; }*/
+
+/**
+ * Padding is the space inside of a box. It contributes to the element's
+ * total width.
+ */
+/*.container div { padding: 10px; }*/
+
+/**
+ * Border is the line around a box. It sits outside of an element's padding.
+ * It contributes to the element's total width.
+ */
+/*.container div { border: 2px dotted #000; }*/
+
+/**
+ * Setting visibility to hidden makes the element invisible, but still in the flow.
+ */
+/*.box-2 { visibility: hidden; }*/
+/*.box-2 { visibility: visible; }*/
+
+/**
+ * Setting display to none makes the element invisible and takes it out of the flow.
+ */
+/*.container .box-2 { display: none; }*/
+/*.container .box-2 { display: block; }*/
+
+/**
+ * Setting position to absolute let's you position an element relative to it's first
+ * positioned (non-static) parent element. In this case, that's the body. It also
+ * takes it out of the flow. Because we haven't set left/right/etc. yet, it will stay
+ * in it's normal position.
+ *
+ * After we add right, you can see how absolute works.
+ *
+ * Note: In Chrome and Firefox, when an element is absolute, its vertical margins no longer
+ * collapse. However, in Safari they do. Keep in mind that not every browser is the same.
+ */
+/*.box-2 { position: absolute; }*/
+/*.box-2 { right: 0; }*/
+
+/**
+ * We can get rid of the margin so we can see the effects of these upcoming positionings
+ * better.
+ */
+/*.container .box-2 { margin: 0; }*/
+
+/**
+ * We can position it from the top of the page. However, if we  also try to position it 
+ * from the bottom, we run into an impossible condition, and it will only listen to the
+ * first that was set.
+ */
+/*.box-2 { top: 20px; }*/
+/*.box-2 { bottom: 20px; }*/
+
+/**
+ * We can fix that impossible condition by setting top to auto, which is the default.
+ * We can then reset the bottom to via the same method.
+ */
+/*.box-2 { top: auto; }*/
+/*.box-2 { bottom: auto; }*/
+
+
+/**
+ * We can put our margin back to normal now.
+ */
+/*.container .box-2 { margin: 1em; }*/
+
+
+/**
+ * Static is the default position of an element.
+ */
+/*.box-2 { position: static; }*/
+
+/**
+ * Relative positioning basically offsets an element's position from where it would normally
+ * be in the flow. The important thing is that any adjustments you make via relative positioning
+ * do not affect the flow of the page. The browser considers the element to always be in its
+ * original position when calculating the position of other elements.
+ */
+/*.box-2 { position: relative; }*/
+
+/**
+ * You can see that when we apply left and top now, it only offsets from the original position
+ * of the element. You can also see that this doesn't affect the flow of the surrounding 
+ * elements.
+ */
+/*.box-2 { left: 50px; }*/
+/*.box-2 { top: 50px; }*/
+
+/**
+ * Let's reset back to static.
+ */
+/*.box-2 { position: static; }*/
+
+/**
+ * You can see here that inline respects padding, but containers don't consider the padding when
+ * calculating element height.
+ *
+ * .block-2 isn't affected because we have a more specific rule above that specifies display to
+ * be block. It uses two classes and is therefore 20 points, vs 11 here.
+ *
+ * We use the second line to force .block-2 to be inline.
+ */
+/*.container div { display: inline; }*/
+/*.container .box-2 { display: inline; }*/
+
+/**
+ * Inline-block is a very useful display. It basically lets you use all the attributes you'd want
+ * to use with blocks (like width and height), but then displays them in an inline fashion 
+ * (i.e. elements don't take up all the available width and can therefore sit on the same line).
+ *
+ * Once again, we have to specifically style .box-2 because of the more specific selector up above.
+ */
+/*.container div { display: inline-block; }*/
+/*.container .box-2 { display: inline-block; }*/
+
+/**
+ * By saying float left, you're telling the browser that the element will allow other elements to 
+ * the left of it. It will affectively align the element to the left and any other left-floating 
+ * elements will sit alongside it. 
+ * 
+ * Float can be very confusing. For one, it takes an element out of the flow. You can see that 
+ * .container thinks it has no contents and therefore shrinks up. Also, when combining multiple floats,
+ * it can be hard to predict how elements will position themselves.
+ */
+/*.container div { float: left; }*/
+
+/**
+ * Clear is like an anti-float. It tells the browser not to let anything sit to the left of it.
+ * This effectively forces .box-2 to be on a new line.
+ *
+ * We can do the same to .box-3, and we get something similar to what we started with.
+ */
+/*.container .box-2 { clear: left; }*/
+/*.container .box-3 { clear: left; }*/
