@@ -135,3 +135,8 @@ li.selected {
 ```
 
 ### Cascading and the Point System
+To be continued...
+
+# Additional Resources
+
+* [HTML/CSS/JavaScript from the Ground Up](http://www.youtube.com/watch?v=60O1CJqh8IM&list=PLDE314C0C8581E8BA): While the official video were taken down a while ago, this tutorial series by Google lives on in a YouTube playlist. We can't recomment this series enough. It can move a little fast, but there isn't any other tutorial series we've found that's so comprehensive and well-laid-out.
